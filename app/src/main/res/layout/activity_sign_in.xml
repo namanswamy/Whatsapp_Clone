@@ -29,18 +29,19 @@
             android:contentDescription="@string/todo" />
 
         <EditText
+            android:id="@+id/txtEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/txtEmail"
-            android:layout_marginBottom="10dp"
             android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:autofillHints=""
+            android:elevation="100dp"
             android:ems="10"
             android:hint="@string/email"
             android:inputType="textEmailAddress"
             android:padding="9dp"
             android:textColor="@color/white"
-            android:textColorHint="@color/chatbackground"
-            android:autofillHints="" />
+            android:textColorHint="@color/chatbackground" />
 
         <EditText
             android:layout_width="match_parent"
