@@ -15,6 +15,11 @@
     <string name="group_chat">Group Chat</string>
     <string name="logout">Logout</string>
     <string name="default_web_client_id">814248242558-jrpgc3qbv26hbfjisbvk13k53h4os2qf.apps.googleusercontent.com</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="calls_fragment">CALLS FRAGMENT</string>
+    <string name="status_fragment">STATUS FRAGMENT</string>
+    <string name="chats_fragment">CHATS FRAGMENT</string>
     <!-- Strings used for fragments for navigation -->
 
 </resources>
