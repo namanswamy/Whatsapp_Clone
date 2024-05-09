@@ -1,5 +1,6 @@
 package com.example.whatsappclone;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -50,7 +51,9 @@ public class MainActivity extends AppCompatActivity {
         } else if (itemId == R.id.groupChat) {
             Toast.makeText(this, "Group Chat is Started", Toast.LENGTH_SHORT).show();
         } else if (itemId == R.id.logout) {
-            Toast.makeText(this, "Logout", Toast.LENGTH_SHORT).show();
+            mAuth.signOut();
+            Intent intent = new Intent(MainActivity.this , SignInActivity.class);
+            startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
     }
