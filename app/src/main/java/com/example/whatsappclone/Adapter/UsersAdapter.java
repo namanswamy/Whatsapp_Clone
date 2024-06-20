@@ -1,6 +1,8 @@
 package com.example.whatsappclone.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +12,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.whatsappclone.ChatDetailActivity;
 import com.example.whatsappclone.Model.Users;
 import com.example.whatsappclone.R;
 import com.squareup.picasso.Picasso;
@@ -37,8 +40,21 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.ViewHolder> 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Users users = list.get(position);
+        String profilePicUrl = users.getProfilePic();
+        Log.d("UsersAdapter", "ProfilePic URL: " + profilePicUrl);
         Picasso.get().load(users.getProfilePic()).placeholder(R.drawable.avatar3).into(holder.image);
         holder.userName.setText(users.getUserName());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, ChatDetailActivity.class);
+                intent.putExtra("userId",users.getUserId());
+                intent.putExtra("profilePic",users.getProfilePic());
+                intent.putExtra("userName",users.getUserName());
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
