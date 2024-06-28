@@ -3,18 +3,24 @@ package com.example.whatsappclone;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.LinearLayout;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.example.whatsappclone.Adapter.ChatAdapter;
+import com.example.whatsappclone.Model.MessageModel;
 import com.example.whatsappclone.databinding.ActivityChatDetailBinding;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.Objects;
 
 public class ChatDetailActivity extends AppCompatActivity {
@@ -53,6 +59,27 @@ public class ChatDetailActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(ChatDetailActivity.this, MainActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        final ArrayList<MessageModel> messageModels = new ArrayList<>();
+        final ChatAdapter chatAdapter = new ChatAdapter(messageModels,this,receiveId);
+
+        binding.chatRecyclerView.setAdapter(chatAdapter);
+
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        binding.chatRecyclerView.setLayoutManager(layoutManager);
+
+        final String senderRoom = senderId + receiveId;
+        final String receiveRoom = receiveId + senderId;
+
+        binding.send.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String message = binding.enterMessage.getText().toString();
+                final MessageModel model = new MessageModel(senderId,message);
+                model.setTimestamp(new Date().getTime());
+                binding.enterMessage.setText("");
             }
         });
 

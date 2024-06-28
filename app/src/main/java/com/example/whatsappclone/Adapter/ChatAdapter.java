@@ -20,6 +20,7 @@ public class ChatAdapter extends RecyclerView.Adapter{
 
     ArrayList<MessageModel> messageModels;
     Context context;
+    String recId;
 
     int SENDER_VIEW_TYPE = 1;
     int RECEIVER_VIEW_TYPE = 2;
@@ -27,6 +28,12 @@ public class ChatAdapter extends RecyclerView.Adapter{
     public ChatAdapter(ArrayList<MessageModel> messageModels, Context context) {
         this.messageModels = messageModels;
         this.context = context;
+    }
+
+    public ChatAdapter(ArrayList<MessageModel> messageModels, Context context, String recId) {
+        this.messageModels = messageModels;
+        this.context = context;
+        this.recId = recId;
     }
 
     @NonNull
