@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import com.example.whatsappclone.Adapter.ChatAdapter;
 import com.example.whatsappclone.Model.MessageModel;
 import com.example.whatsappclone.databinding.ActivityChatDetailBinding;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
@@ -80,6 +81,16 @@ public class ChatDetailActivity extends AppCompatActivity {
                 final MessageModel model = new MessageModel(senderId,message);
                 model.setTimestamp(new Date().getTime());
                 binding.enterMessage.setText("");
+
+                database.getReference().child("chats")
+                        .child(senderRoom)
+                        .push()
+                        .setValue(model).addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void unused) {
+
+                            }
+                        })
             }
         });
 
