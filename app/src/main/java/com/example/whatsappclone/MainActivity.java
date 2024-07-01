@@ -55,7 +55,8 @@ public class MainActivity extends AppCompatActivity {
         if (itemId == R.id.settings) {
             Toast.makeText(this, "Settings is clicked", Toast.LENGTH_SHORT).show();
         } else if (itemId == R.id.groupChat) {
-            Toast.makeText(this, "Group Chat is Started", Toast.LENGTH_SHORT).show();
+            Intent intent1 = new Intent(MainActivity.this, GroupChatActivity.class);
+            startActivity(intent1);
         } else if (itemId == R.id.logout) {
             mAuth.signOut();
             Intent intent = new Intent(MainActivity.this , SignInActivity.class);

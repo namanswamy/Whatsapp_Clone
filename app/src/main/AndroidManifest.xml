@@ -13,6 +13,9 @@
         android:theme="@style/Theme.WhatsappClone"
         tools:targetApi="31">
         <activity
+            android:name=".GroupChatActivity"
+            android:exported="false" />
+        <activity
             android:name=".ChatDetailActivity"
             android:exported="false" />
         <activity
@@ -26,11 +29,11 @@
         </activity>
         <activity
             android:name=".SignUpActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:theme="@style/detail_theme"></activity>
+            android:theme="@style/detail_theme" />
     </application>
 
 </manifest>
