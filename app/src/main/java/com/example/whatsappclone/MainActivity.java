@@ -53,7 +53,8 @@ public class MainActivity extends AppCompatActivity {
         int itemId = item.getItemId();
 
         if (itemId == R.id.settings) {
-            Toast.makeText(this, "Settings is clicked", Toast.LENGTH_SHORT).show();
+            Intent intent2 = new Intent(MainActivity.this, SettingsActivity.class);
+            startActivity(intent2);
         } else if (itemId == R.id.groupChat) {
             Intent intent1 = new Intent(MainActivity.this, GroupChatActivity.class);
             startActivity(intent1);
