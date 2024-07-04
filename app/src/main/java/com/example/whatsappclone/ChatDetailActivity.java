@@ -102,6 +102,7 @@ public class ChatDetailActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String message = binding.enterMessage.getText().toString();
+
                 final MessageModel model = new MessageModel(senderId,message);
                 model.setTimestamp(new Date().getTime());
                 binding.enterMessage.setText("");
